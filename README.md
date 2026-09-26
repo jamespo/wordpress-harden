@@ -88,4 +88,15 @@ Disable some PHP functions, create `/etc/php/8.2/fpm/conf.d/30-harden.ini` with 
 disable_functions =exec,passthru,shell_exec,system,proc_open,popen
 ```
 
+Harden php-fpm service itself, create `/etc/systemd/system/php8.2-fpm.service.d/override.conf` with contents:
+
+```
+[Service]
+ProtectHome=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectControlGroups=true
+NoNewPrivileges=true
+```
+
 ## Apache Config
