@@ -100,3 +100,13 @@ NoNewPrivileges=true
 ```
 
 ## Apache Config
+
+Block wp-json, add the below either directly or via include into WP virtualhost:
+
+```
+<LocationMatch "/wp-json/">
+    Order deny,allow
+    Deny from all
+    Allow from 127.0.0.0/255.0.0.0 ::1/128
+</LocationMatch>
+```
