@@ -10,6 +10,7 @@ so test & implement appropriately.
 
 - Read the offical guide: https://developer.wordpress.org/advanced-administration/security/hardening/
 - Disable file editing in wp-config.php: `define( 'DISALLOW_FILE_EDIT', true );`
+- Ensure your OS is fully patched.
 
 ## Local Proxy & Firewall
 
