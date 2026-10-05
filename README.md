@@ -25,7 +25,7 @@ define('WP_PROXY_PORT', '3128');
 define('WP_PROXY_BYPASS_HOSTS', 'localhost');
 ```
 
-Restrict the proxy to only permit allowed endpoints, example `/etc/squid/squid.conf`:
+When you have your list of trusted destination hosts, restrict the proxy to only permit these allowed endpoints, example `/etc/squid/squid.conf`:
 
 ```
 # Bind only to the local loopback interface
