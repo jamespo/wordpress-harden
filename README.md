@@ -82,6 +82,8 @@ Use `netfilter-persistent` to save these rules.
 
 ## PHP Restrictions
 
+Note these apply to all PHP applications on your server, you may wish to run individual php-fpm daemons per php app / wordpress site (as different system users) and configure appropriately.
+
 Disable some PHP functions, create `/etc/php/8.2/fpm/conf.d/30-harden.ini` with contents:
 
 ```
@@ -102,13 +104,13 @@ NoNewPrivileges=true
 
 ## Apache Config
 
-Block wp-json, add the below either directly or via include into WP virtualhost:
+To block wp-json, add the below either directly or via include into WP virtualhost:
 
 ```
 <LocationMatch "/wp-json/">
     Order deny,allow
     Deny from all
-    # add any addresses you post from in the Allow from line
+    # You MUST add any addresses you post from in the Allow from line
     Allow from 127.0.0.0/255.0.0.0 ::1/128
 </LocationMatch>
 ```
